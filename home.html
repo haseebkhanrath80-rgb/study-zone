@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> THE STUDY ZONE ACADEMY</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Animation Library (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper Slider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/main_logo.png" type="image/x-icon">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#48bb78', // study zone green
+                        secondary: '#007cba', // study zone Blue
+                        accent: '#fa6910', // Orange Accent
+                        dark: '#1f2937',
+                        light: '#f9fafb',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #00df04 0%, #73ba00 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: #00df07 !important;
+            width: 24px !important;
+            border-radius: 4px !important;
+        }
+
+        /* Custom Swiper Navigation */
+        .custom-prev,
+        .custom-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+            width: 40px;
+            height: 40px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            color: #00df00;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .custom-prev:hover,
+        .custom-next:hover {
+            background: #00df30;
+            color: white;
+        }
+
+        .custom-prev {
+            left: 20px;
+        }
+
+        .custom-next {
+            right: 20px;
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased text-gray-700 bg-gray-50 selection:bg-primary selection:text-white overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm"
+        id="header">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg-gradient-to-r from-white to-white rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform duration-300">
+                    <img src="/images/main_logo.png" alt="Study Zone Academy Logo"></div>
+                <span class="text-2xl font-bold text-yellow-500 tracking-tight">Study Zone<span
+                        class="text-green-500">Academy</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="home.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">About
+                    Us</a>
+                <div class="relative group">
+                    <a href="#"
+                        class="text-gray-600 hover:text-green-500 font-medium flex items-center gap-1 transition-colors">Programs
+                        <i class="uil uil-angle-down"></i></a>
+                    <!-- Dropdown -->
+                    <div
+                        class="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <a href="matric.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Matric</a>
+                        <a href="intermediate.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Intermediate</a>
+                    </div>
+                </div>
+                <a href="campus.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Campus
+                    life</a>
+                <a href="Teachers.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">Teachers</a>
+                <a href="Career.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">career</a>
+                <a href="admission.html"
+                    class="px-6 py-2.5 bg-green-500 text-white rounded-full font-medium shadow-lg shadow-green-500 hover:shadow-green-500 hover:scale-105 transition-all duration-300">Admission</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 focus:outline-none">
+                <i class="uil uil-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-gray-800"><i
+                    class="uil uil-times"></i></button>
+            <a href="home.html" class="text-xl font-medium text-green-500">Home</a>
+            <a href="about.html" class="text-xl font-medium text-green-500">About Us</a>
+            <a href="program.html" class="text-xl font-medium text-green-500">Programs</a>
+            <a href="admission.html" class="text-xl font-medium text-green-500">Admissions</a>
+            <a href="campus.html" class="text-xl font-semibold text-green-500">Campus Life</a>
+            <a href="Career.html" class="text-xl font-medium text-green-500">career</a>
+            <a href="Teachers.html" class="text-xl font-medium text-green-500">Teachers</a>
+            <a href="admission.html"
+                class="px-6 py-3 bg-primary text-center text-white rounded-full font-medium text-lg shadow-lg">Admission
+                Now</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <!-- Hero Section (Slider) -->
+        <section class="relative min-h-[600px] lg:h-[800px] overflow-hidden bg-gray-50 flex items-center">
+            <!-- Background Decoration -->
+            <div
+                class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob">
+            </div>
+            <div
+                class="absolute top-40 -left-20 w-[500px] h-[500px] bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000">
+            </div>
+
+            <div class="swiper main-slider w-full h-full">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div
+                            class="container mx-auto px-6 h-full flex flex-col-reverse lg:flex-row items-center gap-12">
+                            <div class="lg:w-1/2 space-y-6 z-10 py-10 lg:py-0" data-aos="fade-right">
+                                <span
+                                    class="inline-block px-4 py-1.5 bg-yellow-500 text-black text-black font-bold rounded-full uppercase tracking-wider">Welcome
+                                    to Study Zone </span>
+                                <h1
+                                    class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-yellow-500">
+                                    Inspiring Minds,
+                                    <span
+                                        class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-green-500"></span>
+                                </h1>
+                                <h1
+                                    class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-green-500">
+                                    <span
+                                        class="text-4xl lg:text-5xl xl:text-6xl font-extrabold leading-tight text-green-500">Shaping
+                                        Future</span>
+                                </h1>
+
+
+                                <p class="text-lg text-gray-600 leading-relaxed max-w-xl">
+                                    As a hub of academic excellence, we cultivate a dynamic and empowering learning
+                                    environment where students are encouraged to explore, innovate, and excel.
+                                </p>
+                                <div class="flex gap-4 pt-4">
+                                    <a href="about.html"
+                                        class="px-8 py-3.5 bg-green-500 text-white font-semibold rounded-full shadow-lg shadow-green-500 hover:shadow-green-500 transform hover:-translate-y-1 transition-all duration-300">
+                                        About Us</a>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 relative z-10 flex justify-center py-10 lg:py-0" data-aos="fade-left">
+                                <div class="relative w-[300px] lg:w-[450px]">
+                                    <div
+                                        class="absolute inset-0 bg-green-500 from-primary to-secondary rounded-[3rem] rotate-6 opacity-20">
+                                    </div>
+                                    <img src="/images/bhai-akif.jpeg" alt="Student"
+                                        class="relative z-10 w-full drop-shadow-2xl animate-float h-85">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide flex items-center justify-center">
+                        <div
+                            class="container mx-auto px-6 h-full flex flex-col-reverse lg:flex-row items-center gap-12">
+                            <div class="lg:w-1/2 space-y-6 z-10 py-10 lg:py-0">
+                                <span
+                                    class="inline-block px-4 py-1.5 bg-yellow-500 text-accent text-black font-bold rounded-full uppercase tracking-wider">Excellence</span>
+                                <h1
+                                    class="text-yellow-500 lg:text-5xl xl:text-6xl font-extrabold leading-tight text-gray-900">
+                                    Where Ideas Blossom <br>
+                                    <span class="text-green-500">Futures Crafted</span>
+                                </h1>
+                                <p class="text-lg text-gray-600 leading-relaxed max-w-xl">
+                                    Embark on a transformative journey of discovery and growth, guided by passionate
+                                    educators and surrounded by peers who share your ambition.
+                                </p>
+                                <div class="flex gap-4 pt-4">
+                                    <a href="admission.html"
+                                        class="px-8 py-3.5 bg-green-500 text-white font-semibold rounded-full shadow-lg shadow-green-500 hover:shadow-green-500 transform hover:-translate-y-1 transition-all duration-300">
+                                        join Us Today</a>
+                                </div>
+                            </div>
+                            <div class="lg:w-1/2 relative z-10 flex justify-center py-10 lg:py-0 ">
+                                <div class="relative w-[300px] lg:w-[450px]">
+                                    <div
+                                        class="absolute inset-0 bg-green-500 from-accent to-green-500 rounded-[3rem] -rotate-3 opacity-20">
+                                    </div>
+                                    <img src="/images/zanib-tofal.jpeg" alt="Student 2"
+                                        class="relative z-10 w-full drop-shadow-2xl animate-float h-85">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Adjusted pagination position -->
+                <div class="swiper-pagination !bottom-12 "></div>
+            </div>
+        </section>
+
+        <!-- Journey Section -->
+        <section class="py-24 bg-white relative">
+            <!-- Decor -->
+            <div class="absolute top-40 left-10 text-9xl text-gray-50 opacity-50 select-none font-bold -z-10">2004</div>
+
+            <div class="container mx-auto px-6 relative z-30">
+                <div class="text-center max-w-3xl mx-auto mb-16" data-aos="fade-up">
+                    <h2 class="text-yellow-500 lg:text-5xl font-bold mb-4">Journey of <span class="text-green-500">study
+                            Zone
+                            Academy</span></h2>
+                    <p class="text-gray-500 text-lg">
+                        A beacon of conceptual and knowledge-based education since 2016. Our legacy of top positions is
+                        a testament to our commitment.
+                    </p>
+                </div>
+
+                <!-- Cards Row -->
+                <div class="grid md:grid-cols-3 gap-8 text-center lg:text-left relative z-30">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center text-secondary text-3xl mb-6 group-hover:bg-secondary group-hover:text-white transition-colors shadow-sm">
+                            <i class="uil uil-building"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">History</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">
+                            In 2016, Study zone Academy humbly began its journey. Today, we foster learning across
+                            <strong class="text-gray-900">1 Campus</strong> in Sahiwal.
+                        </p>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-16 h-16 bg-purple-50 rounded-2xl flex items-center justify-center text-primary text-3xl mb-6 group-hover:bg-primary group-hover:text-white transition-colors shadow-sm">
+                            <i class="uil uil-book-reader"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Revision & Tests</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">
+                            Specialized sessions like <strong class="text-gray-900">Pre-1st Year</strong> and Revision &
+                            Test Sessions reflect our dedication to comprehensive preparation.
+                        </p>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group border border-gray-100"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            class="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center text-accent text-3xl mb-6 group-hover:bg-accent group-hover:text-white transition-colors shadow-sm">
+                            <i class="uil uil-trophy"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-gray-900">Results</h3>
+                        <p class="text-gray-600 leading-relaxed text-sm">
+                            Our students work wonders in board exams and entry tests, earning Study Zone a distinct
+                            position
+                            among leading educational institutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Programs Section -->
+        <section class="py-24 bg-gray-900 text-white relative">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="lg:w-1/2" data-aos="fade-right">
+                        <h2 class="text-4xl lg:text-5xl font-bold mb-6">Our Programs</h2>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            Crafted to suit diverse interests, our programs are firmly rooted in academic excellence.
+                            From cutting-edge sciences to dynamic arts, we empower students to navigate the modern
+                            world.
+                        </p>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <a href="matric.html"
+                                class="group p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-yellow-500 transition-all duration-300">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xl font-bold group-hover:text-yellow-500 transition-colors">Matric</span>
+                                    <i
+                                        class="uil uil-arrow-right text-gray-500 group-hover:text-yellow-500 transition-colors"></i>
+                                </div>
+                                <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
+                                    <div
+                                        class="w-0 group-hover:w-full h-full bg-yellow-500 transition-all duration-700">
+                                    </div>
+                                </div>
+                            </a>
+                            <a href="intermediate.html"
+                                class="group p-6 bg-gray-800 rounded-xl border border-gray-700 hover:border-green-500 transition-all duration-300">
+                                <div class="flex items-center justify-between mb-4">
+                                    <span
+                                        class="text-xl font-bold group-hover:text-green-500 transition-colors">Intermediate</span>
+                                    <i
+                                        class="uil uil-arrow-right text-gray-500 group-hover:text-green-500 transition-colors"></i>
+                                </div>
+                                <div class="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
+                                    <div class="w-0 group-hover:w-full h-full bg-green-500 transition-all duration-700">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 relative" data-aos="fade-left">
+                        <div class="absolute inset-0 bg-green-500 rounded-2xl rotate-6 opacity-30 blur-lg"></div>
+                        <img src="/images/remini 1.jpeg" style="height: 800px;" alt="Programs"
+                            class="relative rounded-2xl shadow-2xl w-full object-cover h-[500px]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer Slider -->
+        <section class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row justify-between items-end mb-12">
+                    <div class="max-w-2xl align-items-center" data-aos="fade-up">
+                        <h2 class="text-yellow-500 lg:text-5xl font-bold mb-4">What</h2>
+                        <h2 class="text-green-500 lg:text-5xl font-bold mb-4">We Offer</h2>
+                        <p class="text-gray-600">Dedicated to providing a holistic educational experience with
+                            exceptional facilities.</p>
+                    </div>
+                    <div class="flex gap-2 mt-4 lg:mt-0">
+                        <div
+                            class="custom-prev-offer w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all cursor-pointer">
+                            <i class="uil uil-angle-left text-xl"></i>
+                        </div>
+                        <div
+                            class="custom-next-offer w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-all cursor-pointer">
+                            <i class="uil uil-angle-right text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper offer-slider">
+                    <div class="swiper-wrapper">
+                        <!-- Slide Items -->
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full group">
+                                <div class="relative overflow-hidden h-56">
+                                    <img src="/images/board-position.jpeg" alt="Top Positions"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 group-hover:text-green-500 transition-colors">Top
+                                        Board Positions</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">Consistently achieving remarkable
+                                        success, securing <br> top positions every year. Our student got 3rd position in
+                                        Sahiwal Board . This is a matter of pride for us. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full group">
+                                <div class="relative overflow-hidden h-56">
+                                    <img src="/images/holistic-education.webp" alt="Holistic"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 group-hover:text-green-500 transition-colors">
+                                        Holistic Education</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">Building physical,
+                                        <br>intellectual,
+                                        moral, and social foundations <br>through indoor and outdoor facilities.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full group">
+                                <div class="relative overflow-hidden h-56">
+                                    <img src="/images/sports-gala.avif" alt="sports"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 group-hover:text-green-500 transition-colors">
+                                        Sports Gala</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">Study Zone Academy sprawling sports
+                                        complex erupts into a three-day carnival of color,sweat,and thunderous cheers
+                                        known as the annual sports gala. </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div
+                                class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 h-full group">
+                                <div class="relative overflow-hidden h-56">
+                                    <img src="/images/fare-well-party.jpg" alt="party"
+                                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                </div>
+                                <div class="p-6">
+                                    <h3 class="text-xl font-bold mb-3 group-hover:text-green-500 transition-colors">
+                                        Party</h3>
+                                    <p class="text-gray-500 text-sm leading-relaxed">every spring, The study zone
+                                        Academy transforms its auditorium into a dazzling venus for thr most anticipated
+                                        event of the year: the farewell party for graduating seniors.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Educational Excellence (Grid + Hover) -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-yellow-500 lg:text-4xl font-bold text-center mb-16" data-aos="fade-down">Setting
+                    Standards In
+                    <br><span class="text-green-500">Educational Excellence</span>
+                </h2>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Item -->
+                    <div class="p-6 rounded-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group bg-gray-50"
+                        data-aos="fade-up">
+                        <div
+                            class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center text-primary text-xl mb-4 group-hover:bg-primary group-hover:text-white transition-colors">
+                            <i class="uil uil-layer-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Multi-dimensional Grooming</h3>
+                        <p class="text-sm text-gray-500">Developing essential skills to meet today’s & tomorrow’s
+                            challenges.</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-6 rounded-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group bg-gray-50"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center text-secondary text-xl mb-4 group-hover:bg-secondary group-hover:text-white transition-colors">
+                            <i class="uil uil-users-alt"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Learning Environment</h3>
+                        <p class="text-sm text-gray-500">Creative and collaborative environment for a strong sense of
+                            community.</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-6 rounded-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group bg-gray-50"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            class="w-12 h-12 bg-white rounded-lg shadow-sm flex items-center justify-center text-accent text-xl mb-4 group-hover:bg-accent group-hover:text-white transition-colors">
+                            <i class="uil uil-compass"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">Career Counseling</h3>
+                        <p class="text-sm text-gray-500">Guiding students to explore best career paths aligning with
+                            their aptitude.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+
+        <!-- Footer -->
+        <footer class="bg-blue-950 text-gray-300 pt-20 pb-10 border-t border-gray-800">
+            <div class="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div>
+                    <h1 class="text-yellow-500">The Study <span class="text-green-500"> Zone Academy</span> </h1>
+                    <p class="mt-4 text-sm text-gray-400 leading-relaxed">
+                        Empowering minds since 2016, Study Zone Academy is dedicated to fostering academic excellence
+                        and holistic development.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="https://www.facebook.com/share/1b5o8gGZ2N/"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i
+                                class="uil uil-facebook-f"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B923036055632&fbclid=IwVERDUAOzvgVzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR6hZNauKhipjbZQ-1wD4XmYdm751oDMEightfF0FcPpPLfD25vCZ9C_uYJqQQ"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors"><i
+                                class="uil uil-whatsapp"></i></a>
+                        <a href="https://www.tiktok.com/@muhammad.faisal537?_r=1&_t=ZS-92NwhMsm7jb"
+                            class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors"><i
+                                class="uil uil-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-6">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="home.html" class="hover:text-green-500 transition-colors">Study Zone Education
+                                System</a></li>
+                        <li><a href="about.html" class="hover:text-green-500 transition-colors">About Us</a></li>
+                        <li><a href="admission.html" class="hover:text-green-500 transition-colors">Admissions</a></li>
+                        <li><a href="campus.html" class="hover:text-green-500 transition-colors">Campus Life</a></li>
+                        <li><a href="matric.html" class="hover:text-green-500 transition-colors">program</a></li>
+                    </ul>
+                </div>
+
+                <!-- Projects -->
+
+
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-white font-bold mb-6">Contact Us</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="uil uil-map-marker text-green-500 text-lg"></i>
+                            <span>78/B-VII,Fathe sher colony , Sahiwal, Pakistan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="uil uil-phone text-green-500 text-lg"></i>
+                            <span>+92 3036055632</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="uil uil-envelope text-green-500 text-lg"></i>
+                            <span>muhammad.faisal6226@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="container mx-auto px-6 pt-8 border-t border-gray-800 text-center text-white text-gray-500">
+                &copy; 2025 studyzoneacademy. All rights reserved.
+            </div>
+        </footer>
+
+        <!-- Scripts -->
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+        <!-- AOS JS -->
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100
+            });
+
+            // Initialize Main Slider
+            new Swiper(".main-slider", {
+                loop: true,
+                // effect: "fade", // Removed to fix overlapping issue
+                speed: 800, // Smoother slide transition
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+            });
+
+            // Initialize Offer Slider
+            new Swiper(".offer-slider", {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                navigation: {
+                    nextEl: ".custom-next-offer",
+                    prevEl: ".custom-prev-offer",
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 2,
+                    },
+                    1024: {
+                        slidesPerView: 4,
+                    },
+                },
+            });
+
+            // Mobile Menu Logic
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const closeMenuBtn = document.getElementById('close-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            function toggleMenu() {
+                if (mobileMenu.classList.contains('translate-x-full')) {
+                    mobileMenu.classList.remove('translate-x-full');
+                } else {
+                    mobileMenu.classList.add('translate-x-full');
+                }
+            }
+
+            mobileMenuBtn.addEventListener('click', toggleMenu);
+            closeMenuBtn.addEventListener('click', toggleMenu);
+
+            // Header Scroll
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.remove('py-3');
+                    header.classList.add('py-2', 'shadow-md');
+                } else {
+                    header.classList.add('py-3');
+                    header.classList.remove('py-2', 'shadow-md');
+                }
+            });
+        </script>
+</body>
+
+</html>

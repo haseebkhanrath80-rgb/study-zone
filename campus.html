@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - STUDY ZONE ACADEMY</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="shortcut icon" href="/images/main_logo.png" type="image/x-icon">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #000000 0%, #000000 100%);
+            min-height: 100vh;
+        }
+
+        .event-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .event-card:hover::before {
+            left: 100%;
+        }
+
+        .event-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .event-icon {
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover .event-icon {
+            transform: rotate(360deg) scale(1.2);
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .sparkle {
+            animation: sparkle 2s infinite;
+        }
+
+        @keyframes sparkle {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .glow-text {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
+        }
+
+        .gradient-border {
+            border: 3px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #667eea, #764ba2, #f093fb) border-box;
+        }
+    </style>
+</head>
+
+<body class="p-0 md:p-0">
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm"
+        id="header">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg-gradient-to-r from-primary to-white rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform duration-300">
+                    <img src="/images/main_logo.png" alt="Study Zone Academy Logo"></div>
+                <span class="text-2xl font-bold text-yellow-500 tracking-tight">Study Zone<span
+                        class="text-green-500">Academy</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="home.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">About
+                    Us</a>
+                <div class="relative group">
+                    <a href="#"
+                        class="text-gray-600 hover:text-green-500 font-medium flex items-center gap-1 transition-colors">Programs
+                        <i class="uil uil-angle-down"></i></a>
+                    <!-- Dropdown -->
+                    <div
+                        class="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <a href="matric.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Matric</a>
+                        <a
+                            href="intermediate.html" "block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Intermediate</a>
+                    </div>
+                </div>
+                <a href="campus.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Campus
+                    life</a>
+                <a href="Teachers.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">Teachers</a>
+                <a href="Career.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">career</a>
+                <a href="admission.html"
+                    class="px-6 py-2.5 bg-green-500 text-white rounded-full font-medium shadow-lg shadow-green-500 hover:shadow-green-500 hover:scale-105 transition-all duration-300">Admission</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 focus:outline-none">
+                <i class="uil uil-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-gray-800"><i
+                    class="uil uil-times"></i></button>
+            <a href="home.html" class="text-xl font-medium text-green-500">Home</a>
+            <a href="about.html" class="text-xl font-medium text-green-500">About Us</a>
+            <a href="program.html" class="text-xl font-medium text-green-500">Programs</a>
+            <a href="admission.html" class="text-xl font-medium text-green-500">Admissions</a>
+            <a href="campus.html" class="text-xl font-semibold text-green-500">Campus Life</a>
+            <a href="Career.html" class="text-xl font-medium text-green-500">career</a>
+            <a href="Teachers.html" class="text-xl font-medium text-green-500">Teachers</a>
+            <a href="admission.html"
+                class="px-6 py-3 bg-primary text-center text-white rounded-full font-medium text-lg shadow-lg">Admission
+                Now</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <div class="max-w-7xl mx-auto">
+            <!-- Header -->
+            <header class="text-center mb-12 fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold text-yellow-500 mb-4 glow-text floating">
+                    Study Zone <span class="text-green-500">Academy</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-purple-100 font-light">
+                    Where Memories Come Alive
+                </p>
+            </header>
+
+            <!-- Events Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Farewell Party -->
+                <div class="event-card bg-white rounded-3xl p-8 shadow-2xl slide-up gradient-border"
+                    style="animation-delay: 0.1s">
+                    <div class="flex items-center mb-6">
+                        <div class="event-icon bg-gradient-to-br from-blue-400 to-purple-600 rounded-full p-4 mr-4">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800">Farewell Party</h2>
+                    </div>
+
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p class="text-sm font-semibold text-purple-600">🌸 Every Spring</p>
+                        <p>
+                            The auditorium transforms into a dazzling venue for graduating seniors. With themes like
+                            <span class="font-semibold text-blue-600">"Starry Night Dreams"</span>, complete with
+                            midnight-blue drapes
+                            and fairy lights.
+                        </p>
+                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 p-4 rounded-xl">
+                            <p class="font-semibold mb-2">🎭 Highlights:</p>
+                            <ul class="space-y-2 text-sm">
+                                <li>📸 Red-carpet arrival & instant photo-booth</li>
+                                <li>💃 Tribute dances & teacher skits</li>
+                                <li>🕯️ Candle-ring legacy ceremony</li>
+                                <li>🎧 Rooftop silent disco & drone show</li>
+                            </ul>
+                        </div>
+                        <p class="italic text-sm">
+                            "Tears, hugs, and confetti fill the air as goodbye becomes a celebration!"
+                        </p>
+                    </div>
+
+                    <button
+                        class="btn-shine mt-6 w-full bg-gradient-to-r from-green-500 to-green-500 text-white py-3 rounded-full font-semibold hover:shadow-xl transition-all">
+                        Explore Memories
+                    </button>
+                </div>
+
+                <!-- Sports Gala -->
+                <div class="event-card bg-white rounded-3xl p-8 shadow-2xl slide-up gradient-border"
+                    style="animation-delay: 0.2s">
+                    <div class="flex items-center mb-6">
+                        <div class="event-icon bg-gradient-to-br from-orange-400 to-red-600 rounded-full p-4 mr-4">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800">Sports Gala</h2>
+                    </div>
+
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p class="text-sm font-semibold text-orange-600">🍂 Every October</p>
+                        <p>
+                            A three-day carnival of color and competition! Four houses—
+                            <span class="font-semibold text-blue-500">Aqua</span>,
+                            <span class="font-semibold text-red-500">Ignis</span>,
+                            <span class="font-semibold text-green-600">Terra</span>, and
+                            <span class="font-semibold text-cyan-500">Aero</span>—battle for glory.
+                        </p>
+                        <div class="bg-gradient-to-r from-orange-50 to-red-50 p-4 rounded-xl">
+                            <p class="font-semibold mb-2">⚡ Action Packed:</p>
+                            <ul class="space-y-2 text-sm">
+                                <li>🔥 Torch relay opening ceremony</li>
+                                <li>🏃 Record-breaking performances</li>
+                                <li>🍔 Fit-food street with protein chaat</li>
+                                <li>⚽ Teachers vs Students finale</li>
+                            </ul>
+                        </div>
+                        <p class="italic text-sm">
+                            "The chemistry teacher in a neon cape saving penalties is legendary!"
+                        </p>
+                    </div>
+
+                    <button
+                        class="btn-shine mt-6 w-full bg-gradient-to-r from-green-500 to-green-500 text-white py-3 rounded-full font-semibold hover:shadow-xl transition-all">
+                        Join the Action
+                    </button>
+                </div>
+
+                <!-- Bonfire Night -->
+                <div class="event-card bg-white rounded-3xl p-8 shadow-2xl slide-up gradient-border"
+                    style="animation-delay: 0.3s">
+                    <div class="flex items-center mb-6">
+                        <div class="event-icon bg-gradient-to-br from-yellow-400 to-orange-600 rounded-full p-4 mr-4">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800">Bonfire Night</h2>
+                    </div>
+
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p class="text-sm font-semibold text-amber-600">❄️ Winter's First Full Moon</p>
+                        <p>
+                            The back lawn becomes a cozy bonfire zone with beanbags, blankets, and a fire-bowl
+                            engraved with the school crest, burning cedar logs soaked in
+                            <span class="font-semibold text-orange-600">cinnamon oil</span>.
+                        </p>
+                        <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-xl">
+                            <p class="font-semibold mb-2">🔥 Magical Moments:</p>
+                            <ul class="space-y-2 text-sm">
+                                <li>🎸 200 voices singing together</li>
+                                <li>📜 "Paper regrets" fire ritual</li>
+                                <li>☕ Color-changing hot chocolate</li>
+                                <li>🔭 Telescope stargazing tours</li>
+                                <li>✨ Synchronized sparkler send-off</li>
+                            </ul>
+                        </div>
+                        <p class="italic text-sm">
+                            "Watch fears turn to ash and hopes paint the sky!"
+                        </p>
+                    </div>
+
+                    <button
+                        class="btn-shine mt-6 w-full bg-gradient-to-r from-green-500 to-green-500 text-white py-3 rounded-full font-semibold hover:shadow-xl transition-all">
+                        Light the Fire
+                    </button>
+                </div>
+
+                <!-- Discovery Trip -->
+                <div class="event-card bg-white rounded-3xl p-8 shadow-2xl slide-up gradient-border"
+                    style="animation-delay: 0.4s">
+                    <div class="flex items-center mb-6">
+                        <div class="event-icon bg-gradient-to-br from-green-400 to-teal-600 rounded-full p-4 mr-4">
+                            <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-800">Discovery Trip</h2>
+                    </div>
+
+                    <div class="space-y-4 text-gray-700 leading-relaxed">
+                        <p class="text-sm font-semibold text-teal-600">🌸 Spring Break Adventure</p>
+                        <p>
+                            Two days at <span class="font-semibold text-blue-600">Khanpur Lake</span>!
+                            Trading classrooms for mountain roads, kayaks, and endless exploration with color-coded
+                            patrols.
+                        </p>
+                        <div class="bg-gradient-to-r from-green-50 to-teal-50 p-4 rounded-xl">
+                            <p class="font-semibold mb-2">🏕️ Adventure Awaits:</p>
+                            <ul class="space-y-2 text-sm">
+                                <li>🚣 Blue Marlin kayaking relays</li>
+                                <li>🧗 Golden Eagles rock climbing</li>
+                                <li>📸 Green Geckos photo scavenger hunt</li>
+                                <li>🐟 Lakeside barbecue & snorkeling</li>
+                                <li>🏞️ 15-foot "Leap of Faith" cliff jump</li>
+                                <li>🏮 Goal lantern release at sunset</li>
+                            </ul>
+                        </div>
+                        <p class="italic text-sm">
+                            "Best lessons happen when desks are swapped for kayaks!"
+                        </p>
+                    </div>
+
+                    <button
+                        class="btn-shine mt-6 w-full bg-gradient-to-r from-green-500 to-green-500 text-white py-3 rounded-full font-semibold hover:shadow-xl transition-all">
+                        Start Exploring 🏔️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <footer class="bg-blue-950 text-gray-300 pt-20 pb-10 border-t border-gray-800 mt-16 ">
+                <div class="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    <!-- Brand -->
+                    <div>
+                        <h1 class="text-yellow-500">The Study <span class="text-green-500">Zone Academy</span></h1>
+                        <p class="text-sm text-gray-400 mb-6">Empowering minds since 2016, Study Zone Academy is dedicated to fostering academic excellence and holistic development.</p>
+                        <div class="flex gap-4">
+                            <a href="https://www.facebook.com/share/1b5o8gGZ2N/"
+                                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i
+                                    class="uil uil-facebook-f"></i></a>
+                            <a href="https://api.whatsapp.com/send?phone=%2B923036055632&fbclid=IwVERDUAOzvgVzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR6hZNauKhipjbZQ-1wD4XmYdm751oDMEightfF0FcPpPLfD25vCZ9C_uYJqQQ"
+                                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors"><i
+                                    class="uil uil-whatsapp"></i></a>
+                            <a href="https://www.tiktok.com/@muhammad.faisal537?_r=1&_t=ZS-92NwhMsm7jb"
+                                class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors"><i
+                                    class="uil uil-instagram"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div>
+                        <h3 class="text-white font-bold mb-6">Quick Links</h3>
+                        <ul class="space-y-3 text-sm">
+                            <li><a href="home.html" class="hover:text-green-500 transition-colors">Study Zone Education
+                                    System</a></li>
+                            <li><a href="about.html" class="hover:text-green-500 transition-colors">About Us</a></li>
+                            <li><a href="admission.html" class="hover:text-green-500 transition-colors">Admissions</a>
+                            </li>
+                            <li><a href="campus.html" class="hover:text-green-500 transition-colors">Campus Life</a>
+                            </li>
+                            <li><a href="program.html" class="hover:text-green-500 transition-colors">program</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Projects -->
+
+
+                    <!-- Contact -->
+                    <div>
+                        <h3 class="text-white font-bold mb-6">Contact Us</h3>
+                        <ul class="space-y-4 text-sm">
+                            <li class="flex items-start gap-3">
+                                <i class="uil uil-map-marker text-green-500 text-lg"></i>
+                                <span>78/B-VII,Fathe sher colony , Sahiwal, Pakistan</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="uil uil-phone text-green-500 text-lg"></i>
+                                <span>+92 3036055632</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="uil uil-envelope text-green-500 text-lg"></i>
+                                <span>muhammad.faisal6226@gmail.com</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="container mx-auto px-6 pt-8 border-t border-gray-800 text-center text-white text-white-500 bg-blue-950">
+                    &copy; 2025 studyzoneacademy. All rights reserved.
+                </div>
+            </footer>
+
+            <!-- Scripts -->
+            <!-- Swiper JS -->
+            <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+            <!-- AOS JS -->
+            <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+            <script>
+                // Initialize AOS
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100
+                });
+
+                // Initialize Main Slider
+                new Swiper(".main-slider", {
+                    loop: true,
+                    // effect: "fade", // Removed to fix overlapping issue
+                    speed: 800, // Smoother slide transition
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: ".swiper-pagination",
+                        clickable: true,
+                    },
+                });
+
+                // Initialize Offer Slider
+                new Swiper(".offer-slider", {
+                    slidesPerView: 1,
+                    spaceBetween: 20,
+                    loop: true,
+                    navigation: {
+                        nextEl: ".custom-next-offer",
+                        prevEl: ".custom-prev-offer",
+                    },
+                    breakpoints: {
+                        640: {
+                            slidesPerView: 2,
+                        },
+                        1024: {
+                            slidesPerView: 4,
+                        },
+                    },
+                });
+
+                // Mobile Menu Logic
+                const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+                const closeMenuBtn = document.getElementById('close-menu-btn');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                function toggleMenu() {
+                    if (mobileMenu.classList.contains('translate-x-full')) {
+                        mobileMenu.classList.remove('translate-x-full');
+                    } else {
+                        mobileMenu.classList.add('translate-x-full');
+                    }
+                }
+
+                mobileMenuBtn.addEventListener('click', toggleMenu);
+                closeMenuBtn.addEventListener('click', toggleMenu);
+
+                // Header Scroll
+                const header = document.getElementById('header');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.remove('py-3');
+                        header.classList.add('py-2', 'shadow-md');
+                    } else {
+                        header.classList.add('py-3');
+                        header.classList.remove('py-2', 'shadow-md');
+                    }
+                });
+            </script>
+        </div>
+</body>
+
+</html>

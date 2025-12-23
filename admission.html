@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form - STUDY ZONE ACADEMY</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/images/main_logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: linear-gradient(to right, rgba(255, 240, 240, 0.5), rgba(255, 255, 255, 1));
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(45deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255, 200, 200, 0.1) 20px,
+                    rgba(255, 200, 200, 0.1) 40px);
+            pointer-events: none;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+            position: relative;
+            z-index: 1;
+        }
+
+
+
+        .header-text {
+            flex-grow: 1;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header-text h1 {
+            color: #0033cc;
+            font-size: 3.2em;
+            margin-bottom: 2px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .header-text h2 {
+            color: #0044dd;
+            font-size: 1.8em;
+            font-weight: 400;
+        }
+
+        .form-title {
+            background: rgba(255, 200, 200, 0.1);
+            padding: 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(-45deg,
+                    transparent,
+                    transparent 25px,
+                    rgba(200, 220, 255, 0.2) 25px,
+                    rgba(200, 220, 255, 0.2) 50px);
+        }
+
+        .form-title h3 {
+            color: #0099ff;
+            font-size: 2.8em;
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-content {
+            padding: 35px 40px;
+            background: linear-gradient(to bottom,
+                    rgba(255, 245, 245, 0.3) 0%,
+                    rgba(255, 250, 240, 0.3) 50%,
+                    rgba(255, 255, 235, 0.4) 100%);
+            position: relative;
+        }
+
+        .form-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(120deg,
+                    transparent,
+                    transparent 30px,
+                    rgba(255, 200, 200, 0.05) 30px,
+                    rgba(255, 200, 200, 0.05) 60px);
+            pointer-events: none;
+        }
+
+        .form-row {
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-label {
+            font-weight: 600;
+            font-size: 1.05em;
+            width: 140px;
+            flex-shrink: 0;
+            color: #222;
+        }
+
+        .char-boxes-container {
+            display: flex;
+            gap: 4px;
+            flex-grow: 1;
+        }
+
+        .char-box {
+            width: 28px;
+            height: 38px;
+            border: 2px solid #333;
+            background: white;
+            text-align: center;
+            font-size: 1.1em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .char-box:focus {
+            outline: none;
+            border-color: #0066ff;
+            background: #f0f8ff;
+        }
+
+        .underline-input {
+            flex-grow: 1;
+            border: none;
+            border-bottom: 2px solid #333;
+            background: transparent;
+            padding: 6px 12px;
+            font-size: 1em;
+        }
+
+        .underline-input:focus {
+            outline: none;
+            border-bottom-color: #0066ff;
+        }
+
+        .contact-row {
+            display: flex;
+            gap: 35px;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .office-section {
+            background: linear-gradient(to bottom,
+                    rgba(255, 250, 220, 0.5),
+                    rgba(255, 235, 200, 0.6));
+            padding: 28px 35px 35px;
+            margin-top: 35px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .office-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                repeating-linear-gradient(60deg,
+                    transparent,
+                    transparent 20px,
+                    rgba(255, 220, 150, 0.1) 20px,
+                    rgba(255, 220, 150, 0.1) 40px);
+            pointer-events: none;
+        }
+
+        .office-header {
+            text-align: center;
+            margin-bottom: 28px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .office-badge {
+            display: inline-block;
+            background: #0099ff;
+            color: white;
+            padding: 12px 35px;
+            font-size: 1.4em;
+            font-weight: 600;
+            box-shadow: 0 3px 8px rgba(0, 153, 255, 0.3);
+        }
+
+        .office-row {
+            display: flex;
+            gap: 35px;
+            margin-bottom: 25px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .date-boxes {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .date-box {
+            width: 38px;
+            height: 42px;
+            border: 2px solid #333;
+            background: white;
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: 500;
+        }
+
+        .date-box:focus {
+            outline: none;
+            border-color: #0066ff;
+            background: #fffef0;
+        }
+
+        .separator {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .admission-boxes {
+            display: flex;
+            gap: 4px;
+        }
+
+        .admission-box {
+            width: 45px;
+            height: 42px;
+            border: 2px solid #333;
+            background: white;
+            text-align: center;
+            font-size: 1.15em;
+            font-weight: 500;
+        }
+
+        .admission-box:focus {
+            outline: none;
+            border-color: #0066ff;
+            background: #fffef0;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+                background: white;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .header-text h1 {
+                font-size: 2.2em;
+            }
+
+            .header-text h2 {
+                font-size: 1.3em;
+            }
+
+            .form-title h3 {
+                font-size: 2em;
+            }
+
+            .form-row {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .form-label {
+                margin-bottom: 8px;
+            }
+
+            .char-boxes-container {
+                flex-wrap: wrap;
+            }
+
+            .contact-row,
+            .office-row {
+                flex-direction: column;
+                gap: 20px;
+                width: 100%;
+            }
+
+            .contact-item {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm"
+        id="header">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg-gradient-to-r from-primary to-white rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform duration-300">
+                    <img src="/images/main_logo.png" alt="Study Zone Academy Logo"></div>
+                <span class="text-2xl font-bold text-yellow-500 tracking-tight">Study Zone<span
+                        class="text-green-500">Academy</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="home.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">About
+                    Us</a>
+                <div class="relative group">
+                    <a href="#"
+                        class="text-gray-600 hover:text-green-500 font-medium flex items-center gap-1 transition-colors">Programs
+                        <i class="uil uil-angle-down"></i></a>
+                    <!-- Dropdown -->
+                    <div
+                        class="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <a href="matric.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Matric</a>
+                        <a href="intermediate.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Intermediate</a>
+                    </div>
+                </div>
+                <a href="campus.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Campus
+                    life</a>
+                <a href="Teachers.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">Teachers</a>
+                <a href="Career.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">career</a>
+                <a href="admission.html"
+                    class="px-6 py-2.5 bg-green-500 text-white rounded-full font-medium shadow-lg shadow-green-500 hover:shadow-green-500 hover:scale-105 transition-all duration-300">Admission</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 focus:outline-none">
+                <i class="uil uil-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-gray-800"><i
+                    class="uil uil-times"></i></button>
+            <a href="home.html" class="text-xl font-medium text-green-500">Home</a>
+            <a href="about.html" class="text-xl font-medium text-green-500">About Us</a>
+            <a href="program.html" class="text-xl font-medium text-green-500">Programs</a>
+            <a href="admission.html" class="text-xl font-medium text-green-500">Admissions</a>
+            <a href="campus.html" class="text-xl font-semibold text-green-500">Campus Life</a>
+            <a href="Career.html" class="text-xl font-medium text-green-500">career</a>
+            <a href="Teachers.html" class="text-xl font-medium text-green-500">Teachers</a>
+            <a href="admission.html"
+                class="px-6 py-3 bg-primary text-center text-white rounded-full font-medium text-lg shadow-lg">Admission
+                Now</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+
+        <div class="container">
+            <div class="header">
+                <div class="logo">
+
+                    <div><img src="/images/main_logo.png" alt="Study Zone Academy Logo"></div>
+                </div>
+                <div class="header-text">
+                    <h1>The Study Zone</h1>
+                    <h2>Academy Sahiwal</h2>
+                </div>
+            </div>
+
+            <div class="form-title">
+                <h3>Admission Form</h3>
+            </div>
+
+            <div class="form-content">
+                <form id="admissionForm">
+                    <div class="form-row">
+                        <div class="form-label">Name:</div>
+                        <div class="char-boxes-container" id="nameBoxes">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                            <input type="text" class="char-box name-char" maxlength="1">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-label">Father Name:</div>
+                        <div class="char-boxes-container">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                            <input type="text" class="char-box father-char" maxlength="1">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-label">Class</div>
+                        <input type="text" class="underline-input" id="class">
+                    </div>
+
+                    <div class="form-row contact-row">
+                        <div class="contact-item">
+                            <div class="form-label">Contact</div>
+                            <input type="text" class="underline-input" id="contact">
+                        </div>
+                        <div class="contact-item">
+                            <div class="form-label">Father Contact</div>
+                            <input type="text" class="underline-input" id="fatherContact">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-label">Subjects</div>
+                        <input type="text" class="underline-input" id="subjects">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-label">Address</div>
+                        <input type="text" class="underline-input" id="address">
+                    </div>
+
+                    <div class="office-section">
+                        <div class="office-header">
+                            <div class="office-badge">For office use</div>
+                        </div>
+
+                        <div class="office-row">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div class="form-label">Date</div>
+                                <div class="date-boxes">
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <span class="separator">−</span>
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <span class="separator">−</span>
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <input type="text" class="date-box" maxlength="1">
+                                    <input type="text" class="date-box" maxlength="1">
+                                </div>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div class="form-label">Admission No.</div>
+                                <div class="admission-boxes">
+                                    <input type="text" class="admission-box" maxlength="1">
+                                    <input type="text" class="admission-box" maxlength="1">
+                                    <input type="text" class="admission-box" maxlength="1">
+                                    <input type="text" class="admission-box" maxlength="1">
+                                    <input type="text" class="admission-box" maxlength="1">
+                                    <input type="text" class="admission-box" maxlength="1">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div>
+
+                        <div class="form-row">
+                            <div class="form-label">Class:</div>
+                            <input type="text" class="underline-input" id="officeClass">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label">Fee:</div>
+                            <input type="text" class="underline-input" id="fee">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-label">Principal Sign:</div>
+                            <input type="text" class="underline-input" id="principalSign">
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-8">
+                        <button type="submit"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-lg shadow-lg transform transition hover:scale-105 focus:outline-none focus:ring-4 focus:ring-blue-300">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            const allBoxes = document.querySelectorAll('.char-box, .date-box, .admission-box');
+
+            allBoxes.forEach((box, index) => {
+                box.addEventListener('input', function (e) {
+                    if (this.value.length === 1) {
+                        const nextBox = allBoxes[index + 1];
+                        if (nextBox) {
+                            nextBox.focus();
+                        }
+                    }
+                });
+
+                box.addEventListener('keydown', function (e) {
+                    if (e.key === 'Backspace' && this.value === '') {
+                        const prevBox = allBoxes[index - 1];
+                        if (prevBox) {
+                            prevBox.focus();
+                        }
+                    }
+                });
+            });
+        </script>
+</body>
+
+</html>

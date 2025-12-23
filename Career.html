@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form - STUDY ZONE ACADEMY</title>
+    <link rel="shortcut icon" href="/images/main_logo.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1dda1d 0%, #bcdb10 100%);
+            min-height: 100vh;
+            padding: 0rem;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .form-header {
+            background: linear-gradient(135deg, #1dda1d 0%, #bcdb10 100%);
+            color: white;
+            padding: 3rem 2rem 3rem 2rem;
+            text-align: center;
+        }
+
+        .form-header h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .form-body {
+            padding: 3rem 2rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-input:hover,
+        .form-select:hover,
+        .form-textarea:hover {
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .radio-group,
+        .checkbox-group {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .radio-item:hover,
+        .checkbox-item:hover {
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+
+        .radio-item input[type="radio"],
+        .checkbox-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #667eea;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            border: 2px dashed #e0e0e0;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-wrapper:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+            transform: translateY(-2px);
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        .file-upload-icon {
+            font-size: 3rem;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #1dda1d 0%, #bcdb10 100%);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 2rem;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(78, 244, 89, 0.4);
+        }
+
+        .submit-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .form-header h1 {
+                font-size: 2rem;
+            }
+
+            .form-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0  w-full z-50 fix transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm "
+        id="header ">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg- from-primary to-white rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform duration-300">
+                    <img src="/images/main_logo.png" alt=""></div>
+                <span class="text-2xl font-bold text-yellow-500 tracking-tight">Study Zone<span
+                        class="text-green-500">Academy</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="home.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">About
+                    Us</a>
+                <div class="relative group">
+                    <a href="#"
+                        class="text-gray-600 hover:text-green-500 font-medium flex items-center gap-1 transition-colors">Programs
+                        <i class="uil uil-angle-down"></i></a>
+                    <!-- Dropdown -->
+                    <div
+                        class="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <a href="matric.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Matric</a>
+                        <a href="intermediate.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Intermediate</a>
+                    </div>
+                </div>
+                <a href="campus.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Campus
+                    life</a>
+                <a href="Teachers.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">Teachers</a>
+                <a href="Career.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">career</a>
+                <a href="admission.html"
+                    class="px-6 py-2.5 bg-green-500 text-white rounded-full font-medium shadow-lg shadow-green-500 hover:shadow-green-500 hover:scale-105 transition-all duration-300">Admission</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 focus:outline-none">
+                <i class="uil uil-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-gray-800"><i
+                    class="uil uil-times"></i></button>
+            <a href="home.html" class="text-xl font-medium text-green-500">Home</a>
+            <a href="about.html" class="text-xl font-medium text-green-500">About Us</a>
+            <a href="program.html" class="text-xl font-medium text-green-500">Programs</a>
+            <a href="admission.html" class="text-xl font-medium text-green-500">Admissions</a>
+            <a href="campus.html" class="text-xl font-semibold text-green-500">Campus Life</a>
+            <a href="Career.html" class="text-xl font-medium text-green-500">career</a>
+            <a href="Teachers.html" class="text-xl font-medium text-green-500">Teachers</a>
+            <a href="admission.html"
+                class="px-6 py-3 bg-primary text-center text-white rounded-full font-medium text-lg shadow-lg">Admission
+                Now</a>
+        </div>
+    </header>
+
+    <main class="pt-24 bg-white">
+
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="text-black">Join Study Zone Academy</h1>
+                <p class="text-white">The Right way Of Your Career</p>
+            </div>
+
+            <div class="form-body">
+                <!-- Personal Information -->
+                <div class="section-title text-black">Personal Information</div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Full Name *</label>
+                        <input type="text" class="form-input" placeholder="Enter your full name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Father's Name *</label>
+                        <input type="text" class="form-input" placeholder="Enter father's name" required>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">CNIC *</label>
+                        <input type="text" class="form-input" placeholder="xxxxx-xxxxxxx-x" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Date of Birth *</label>
+                        <input type="date" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Gender *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="gender" value="male" required>
+                            <span>Male</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="gender" value="female" required>
+                            <span>Female</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Upload Photo</label>
+                    <div class="file-upload-wrapper">
+                        <div class="file-upload-icon">📷</div>
+                        <p>Click to upload or drag and drop</p>
+                        <p class="text-sm text-gray-500">JPG, PNG (MAX. 55MB)</p>
+                        <input type="file" accept="image/*">
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="section-title text-black">Contact Information</div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Email Address *</label>
+                        <input type="email" class="form-input" placeholder="your.email@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Mobile Number *</label>
+                        <input type="tel" class="form-input" placeholder="+92 3xx xxxxxxx" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Home Address *</label>
+                    <textarea class="form-textarea" placeholder="Enter your complete address" required></textarea>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Province *</label>
+                        <select class="form-select" required>
+                            <option value="">Select Province</option>
+                            <option value="punjab">Punjab</option>
+                            <option value="sindh">Sindh</option>
+                            <option value="kpk">Khyber Pakhtunkhwa</option>
+                            <option value="balochistan">Balochistan</option>
+                            <option value="ict">Islamabad Capital Territory</option>
+                            <option value="ajk">Azad Kashmir</option>
+                            <option value="gb">Gilgit Baltistan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">City *</label>
+                        <select class="form-select" required>
+                            <option value="">Select City</option>
+                            <option value="lahore">Lahore</option>
+                            <option value="karachi">Karachi</option>
+                            <option value="islamabad">Islamabad</option>
+                            <option value="rawalpindi">Sahiwal</option>
+                            <option value="faisalabad">Faisalabad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Are you willing to relocate? *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="relocate" value="yes" required>
+                            <span>Yes</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="relocate" value="no" required>
+                            <span>No</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Academic Information -->
+                <div class="section-title text-black">Academic Information</div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Highest Qualification *</label>
+                        <select class="form-select" required>
+                            <option value="">Select Qualification</option>
+                            <option value="matric">Matric</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="bachelors">Bachelor's Degree</option>
+                            <option value="masters">Master's Degree</option>
+                            <option value="phd">PhD</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Field of Study *</label>
+                        <input type="text" class="form-input" placeholder="e.g., Computer Science" required>
+                    </div>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="section-title text-black">Work Experience</div>
+
+                <div class="form-group">
+                    <label class="form-label">Total Work Experience *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="experience" value="0-2" required>
+                            <span>0-2 Years</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="experience" value="3-5" required>
+                            <span>3-5 Years</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="experience" value="6-10" required>
+                            <span>6-10 Years</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="experience" value="10+" required>
+                            <span>10+ Years</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Current Employment Status *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="employment" value="employed" required>
+                            <span>Employed</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="employment" value="self-employed" required>
+                            <span>Self-employed</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="employment" value="unemployed" required>
+                            <span>Unemployed</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Area of Interest -->
+                <div class="section-title text-black">Area of Interest</div>
+
+                <div class="form-group">
+                    <label class="form-label">Position Type *</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="position" value="faculty" required>
+                            <span>Faculty</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="position" value="management" required>
+                            <span>Management</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Select Shift *</label>
+                        <select class="form-select" required>
+                            <option value="">Evening</option>
+
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Subject *</label>
+                        <select class="form-select" required>
+                            <option value="">Select Subject</option>
+                            <option value="admin">English</option>
+                            <option value="hr">Urdu</option>
+                            <option value="accounts">Math</option>
+                            <option value="marketing">Physics</option>
+                            <option value="it">Chemistry</option>
+                            <option value="it">Biology</option>
+                            <option value="it">Islamiat</option>
+                            <option value="it">T.Quran</option>
+                            <option value="it">Ecomonics</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Documents -->
+                <div class="section-title text-black">Upload Documents</div>
+
+                <div class="form-group">
+                    <label class="form-label">Resume/CV *</label>
+                    <div class="file-upload-wrapper">
+                        <div class="file-upload-icon">📄</div>
+                        <p>Click to upload your resume</p>
+                        <p class="text-sm text-gray-500">PDF, DOC, DOCX (MAX. 55MB)</p>
+                        <input type="file" accept=".pdf,.doc,.docx" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">Submit Application</button>
+            </div>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Matric Programs - STUDY ZONE ACADEMY </title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- Animation Library (AOS) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/main_logo.png" type="image/x-icon">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: ' #0000FF',
+                        secondary: '#007cba',
+                        accent: '#fa6910',
+                        dark: '#1f2937',
+                        light: '#f9fafb',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-text {
+            background: linear-gradient(135deg, #7a00df 0%, #007cba 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Tab Styles */
+        .tab-btn.active {
+            background-color: #00df13;
+            color: white;
+            border-color: #00df38;
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased text-gray-700 bg-gray-50 selection:bg-primary selection:text-white overflow-x-hidden">
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm"
+        id="header">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <div class="flex items-center gap-2 group">
+                <div
+                    class="w-10 h-10 bg-gradient-to-r from-white to-white rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:rotate-12 transition-transform duration-300">
+                    <img src="/images/main_logo.png" alt="Study Zone Academy Logo">
+                </div>
+                <span class="text-2xl font-bold text-yellow-500 tracking-tight">Study Zone<span
+                        class="text-green-500">Academy</span></span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden lg:flex items-center gap-8">
+                <a href="home.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Home</a>
+                <a href="about.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">About
+                    Us</a>
+                <div class="relative group">
+                    <a href="#"
+                        class="text-gray-600 hover:text-green-500 font-medium flex items-center gap-1 transition-colors">Programs
+                        <i class="uil uil-angle-down"></i></a>
+                    <!-- Dropdown -->
+                    <div
+                        class="absolute top-full left-0 w-48 bg-white border border-gray-100 shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <a href="matric.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Matric</a>
+                        <a href="intermediate.html"
+                            class="block px-4 py-2 hover:bg-gray-50 text-gray-700 hover:text-green-500 transition-colors">Intermediate</a>
+                    </div>
+                </div>
+                <a href="campus.html" class="text-gray-600 hover:text-green-500 font-medium transition-colors">Campus
+                    life</a>
+                <a href="Teachers.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">Teachers</a>
+                <a href="Career.html"
+                    class="text-gray-600 hover:text-green-500 font-medium transition-colors">career</a>
+                <a href="admission.html"
+                    class="px-6 py-2.5 bg-green-500 text-white rounded-full font-medium shadow-lg shadow-green-500 hover:shadow-green-500 hover:scale-105 transition-all duration-300">Admission</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="lg:hidden text-2xl text-gray-800 focus:outline-none">
+                <i class="uil uil-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-white z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-20 px-6 gap-6">
+            <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-gray-800"><i
+                    class="uil uil-times"></i></button>
+            <a href="home.html" class="text-xl font-medium text-green-500">Home</a>
+            <a href="about.html" class="text-xl font-medium text-green-500">About Us</a>
+            <a href="program.html" class="text-xl font-medium text-green-500">Programs</a>
+            <a href="admission.html" class="text-xl font-medium text-green-500">Admissions</a>
+            <a href="campus.html" class="text-xl font-semibold text-green-500">Campus Life</a>
+            <a href="Career.html" class="text-xl font-medium text-green-500">career</a>
+            <a href="Teachers.html" class="text-xl font-medium text-green-500">Teachers</a>
+            <a href="admission.html"
+                class="px-6 py-3 bg-primary text-center text-white rounded-full font-medium text-lg shadow-lg">Admission
+                Now</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="bg-gray-900 text-white py-20 relative overflow-hidden">
+
+            <div class="container mx-auto px-6 relative z-10 text-center" data-aos="fade-up">
+                <h1 class="text-4xl lg:text-5xl font-bold mb-4 text-yellow-500">Matric <span
+                        class="text-green-500 ">programs</span></h1>
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+                    The Study ZONE Academy, we blend knowledge with excellence to create leaders of tomorrow. Our Matric
+                    programs lay the foundation for strong academic and personal growth, fostering an environment where
+                    creativity and critical thinking thrive.
+                </p>
+            </div>
+        </section>
+
+        <!-- Programs Tabs Section -->
+        <section class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+
+                <!-- Tabs Navigation -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12" role="tablist" data-aos="fade-up">
+                    <button onclick="switchTab('pre-9th')" id="tab-pre-9th"
+                        class="tab-btn active px-6 py-3 rounded-full border border-gray-200 text-gray-600 font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300">
+                        Pre-9th Class
+                    </button>
+                    <button onclick="switchTab('science-group')" id="tab-science-group"
+                        class="tab-btn px-6 py-3 rounded-full border border-gray-200 text-gray-600 font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300">
+                        Biology
+                    </button>
+                    <button onclick="switchTab('computer-science')" id="tab-computer-science"
+                        class="tab-btn px-6 py-3 rounded-full border border-gray-200 text-gray-600 font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300">
+                        Computer Science
+                    </button>
+                    <button onclick="switchTab('general-science')" id="tab-general-science"
+                        class="tab-btn px-6 py-3 rounded-full border border-gray-200 text-gray-600 font-semibold hover:border-green-500 hover:text-green-500 transition-all duration-300">
+                        General Science
+                    </button>
+                </div>
+
+                <!-- Tab Contents -->
+                <div class="bg-gray-50 rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100" data-aos="fade-up"
+                    data-aos-delay="100">
+
+                    <!-- Pre-9th Class -->
+                    <div id="content-pre-9th" class="tab-content block">
+                        <div class="flex flex-col lg:flex-row gap-12 items-center">
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-2xl font-bold text-green-500">About Program</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    Study Zone Academy has introduced the innovative concept of Pre-9th Class,
+                                    addressing the
+                                    challenge of limited time for students to cover the 9th class course effectively.
+                                    This comprehensive program spans over 3-4 months and empowers students to get ahead
+                                    in their studies and be well-prepared for their matric exams.
+                                </p>
+
+
+                            </div>
+                            <div class="lg:w-1/2">
+                                <img src="/images/Pre-9.jpeg" alt="Pre-9th Class"
+                                    class="rounded-2xl shadow-xl w-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Science Group -->
+                    <div id="content-science-group" class="tab-content hidden">
+                        <div class="flex flex-col lg:flex-row gap-12 items-center">
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-2xl font-bold text-green-500">About Program</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    The Matric Science Group program offered by Study Zone Academy is a comprehensive
+                                    and rigorous
+                                    academic pathway designed for ambitious students aspiring to excel in the fields of
+                                    science. This program includes Physics, Chemistry, Biology, and Mathematics,
+                                    providing students with a strong foundation for future scientific studies.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-secondary">
+                                    <h4 class="font-bold text-secondary">Subjects Offered</h4>
+                                    <p class="text-gray-600">Physics, Chemistry, Biology, Mathematics, English, Urdu,
+                                        Islamiyat/Ethics, Pakistan Studies</p>
+                                </div>
+
+
+                            </div>
+                            <div class="lg:w-1/2">
+                                <img src="/images/biology.jpeg" alt="Biology"
+                                    class="rounded-2xl shadow-xl w-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Computer Science -->
+                    <div id="content-computer-science" class="tab-content hidden">
+                        <div class="flex flex-col lg:flex-row gap-12 items-center">
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-2xl font-bold text-green-500">About Program</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    The Matric Computer Science program offered at Study Zone Academy is a dynamic and
+                                    comprehensive academic pathway carefully crafted for students who have a passion
+                                    for technology and computing. This program combines core science subjects with
+                                    computer science to prepare students for the digital age.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-secondary">
+                                    <h4 class="font-bold text-secondary">Subjects Offered</h4>
+                                    <p class="text-gray-600">Physics, Chemistry, Computer Science, Mathematics, English,
+                                        Urdu, Islamiyat/Ethics, Pakistan Studies</p>
+                                </div>
+
+                            </div>
+                            <div class="lg:w-1/2">
+                                <img src="/images/computer science.jpeg" alt="Computer Science"
+                                    class="rounded-2xl shadow-xl w-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- General Science -->
+                    <div id="content-general-science" class="tab-content hidden">
+                        <div class="flex flex-col lg:flex-row gap-12 items-center">
+                            <div class="lg:w-1/2 space-y-6">
+                                <h3 class="text-2xl font-bold text-green-500">About Program</h3>
+                                <p class="text-gray-600 leading-relaxed">
+                                    The Matric General Science program provides a balanced education combining science
+                                    with humanities subjects. This program is ideal for students who want to keep their
+                                    options open for both science and arts fields in their future academic pursuits.
+                                </p>
+                                <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-secondary">
+                                    <h4 class="font-bold text-secondary">Subjects Offered</h4>
+                                    <p class="text-gray-600">General Science, Mathematics, English, Urdu,
+                                        Islamiyat/Ethics, Pakistan Studies</p>
+                                </div>
+
+                            </div>
+                            <div class="lg:w-1/2">
+                                <img src="/images/arts.jpeg" alt="General Science"
+                                    class="rounded-2xl shadow-xl w-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-blue-950 text-gray-300 pt-20 pb-10 border-t border-gray-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+            <!-- Brand -->
+            <div>
+                <h1 class="text-yellow-500">The Study <span class="text-green-500">Zone Academy </span></h1>
+                <p class="text-sm text-gray-400 mb-6">Empowering minds since 2016, Study Zone Academy is dedicated to fostering academic excellence and holistic development.</p>
+                <div class="flex gap-4">
+                    <a href="https://www.facebook.com/share/1b5o8gGZ2N/"
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i
+                            class="uil uil-facebook-f"></i></a>
+                    <a href="https://api.whatsapp.com/send?phone=%2B923036055632&fbclid=IwVERDUAOzvgVzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR6hZNauKhipjbZQ-1wD4XmYdm751oDMEightfF0FcPpPLfD25vCZ9C_uYJqQQ"
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-green-600 hover:text-white transition-colors"><i
+                            class="uil uil-whatsapp"></i></a>
+                    <a href="https://www.tiktok.com/@muhammad.faisal537?_r=1&_t=ZS-92NwhMsm7jb"
+                        class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-pink-600 hover:text-white transition-colors"><i
+                            class="uil uil-instagram"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h3 class="text-white font-bold mb-6">Quick Links</h3>
+                <ul class="space-y-3 text-sm">
+                    <li><a href="home.html" class="hover:text-green-500 transition-colors">Study Zone Education
+                            System</a></li>
+                    <li><a href="about.html" class="hover:text-green-500 transition-colors">About Us</a></li>
+                    <li><a href="admission.html" class="hover:text-green-500 transition-colors">Admissions</a></li>
+                    <li><a href="campus.html" class="hover:text-green-500 transition-colors">Campus Life</a></li>
+                    <li><a href="program.html" class="hover:text-green-500 transition-colors">program</a></li>
+                </ul>
+            </div>
+
+            <!-- Projects -->
+
+
+            <!-- Contact -->
+            <div>
+                <h3 class="text-white font-bold mb-6">Contact Us</h3>
+                <ul class="space-y-4 text-sm">
+                    <li class="flex items-start gap-3">
+                        <i class="uil uil-map-marker text-green-500 text-lg"></i>
+                        <span>78/B-VII,Fathe sher colony , Sahiwal, Pakistan</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="uil uil-phone text-green-500 text-lg"></i>
+                        <span>+92 3036055632</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="uil uil-envelope text-green-500 text-lg"></i>
+                        <span>muhammad.faisal6226@gmail.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container mx-auto px-6 pt-8 border-t border-gray-800 text-center text-white text-gray-500">
+            &copy; 2025 studyzoneacademy. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Tab Switching Logic
+        function switchTab(tabId) {
+            // Hide all contents
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.add('hidden');
+                content.classList.remove('block');
+            });
+
+            // Show selected content
+            const selectedContent = document.getElementById('content-' + tabId);
+            if (selectedContent) {
+                selectedContent.classList.remove('hidden');
+                selectedContent.classList.add('block');
+            }
+
+            // Update button styles
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Activate selected button
+            const selectedBtn = document.getElementById('tab-' + tabId);
+            if (selectedBtn) {
+                selectedBtn.classList.add('active');
+            }
+        }
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        function toggleMenu() {
+            if (mobileMenu.classList.contains('translate-x-full')) {
+                mobileMenu.classList.remove('translate-x-full');
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+
+        // Header Scroll
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('py-3');
+                header.classList.add('py-2', 'shadow-md');
+            } else {
+                header.classList.add('py-3');
+                header.classList.remove('py-2', 'shadow-md');
+            }
+        });
+    </script>
+</body>
+
+</html>
